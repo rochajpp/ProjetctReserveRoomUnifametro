@@ -1,0 +1,52 @@
+header{
+    height: 15%;
+    padding: 2rem;
+    background-color: var(--light-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.header-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main{
+    background-color: var(--primary-color);
+    height: 85%;
+    background: url("/img/unifametro-fonte.jpeg") center no-repeat;   
+    background-size: cover;
+}
+
+.main-container{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(5px);
+}
+
+.input-area{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+form{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+    background-color: var(--light-color);
+    padding: 2rem 8rem;
+    border-radius: 1rem;
+}
+
+label{
+    font-weight: bold;
+}
+input{
+    height: 2.5rem;
+    padding: 0.5rem;
+}

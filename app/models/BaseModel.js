@@ -27,7 +27,7 @@ class BaseModel{
     async insert(model){
         try{
             const[result] = await this._context.query("INSERT INTO " + this._table + " SET ?", model);
-            return result.insertId;
+            return result;
         } catch(err){
             console.error("Error when entering data: ", err);
             return null;
@@ -37,7 +37,7 @@ class BaseModel{
     async update(model){
         try{
             const [result] = await this._context.query("UPDATE " + this._table + " SET ?", model);
-            return result.affectedRows > 0;
+            return result;
         } catch(err){
             console.error("Error when updating data: " + err.message);
             return null;
@@ -47,7 +47,7 @@ class BaseModel{
     async removeById(modelId){
         try{
             const [result] = await this._context.query("DELETE FROM " + this._table + " WHERE Id = " + modelId);
-            return result.affectedRows > 0
+            return result;
         }catch(err){
             console.error("Error removing data: " + err);
             return null;
