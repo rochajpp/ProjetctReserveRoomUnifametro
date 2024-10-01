@@ -60,6 +60,13 @@ controllers e models dentro da aplicação.
 
 <br>
 
+# API
+
+No projeto criei algumas API's para eu obter dados no lado Client a partir de um
+`fetch()` para eu trabalhar com os dados do banco dados no Client.
+
+<br>
+
 ## Observações sobre o projeto
 
 Além de eu ter citado a minha decisão de não usar o sequelize também optei por não
@@ -77,6 +84,7 @@ Finalizando a aplicação irei analisar e decidir se desenvolvo a responsividade
 
 - Aluno ser notificado por email com as informações da reserva.
 - Adição do `Sequelize` no projeto ou alguma outra ORM.
+- Adicionar queries com `JOIN` nos models para pegar os dados completamente
 
 <br>
 

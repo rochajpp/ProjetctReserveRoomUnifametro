@@ -1,10 +1,6 @@
-body{
-    background-color: var(--primary-color);
-}
-
 main{
     height: 100vh;
-    background: url("/img/unifametro-areaaluno.jpg") center no-repeat;
+    background: url("/img/unifametro.jpg") center no-repeat;
     background-size: cover;
 }
 
@@ -16,7 +12,6 @@ main{
     justify-content: center;
 }
 
-
 .box{
     display: flex;
     flex-direction: column;
@@ -24,13 +19,34 @@ main{
     align-items: center;
     background-color: var(--light-color);
     border-radius: 1rem;
-    width: 50%;
+    min-width: 50%;
     min-height: 80%;
     padding: 2rem;
     color: var(--primary-color);
     text-align: center;
 }
-
-.start-button{
+.input-area{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
     width: 100%;
+}
+form{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem;
+    width: 100%;
+}
+label{
+    font-weight: bold;
+}
+input, select{
+    height: 2.5rem;
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid black;
 }

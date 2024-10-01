@@ -1,9 +1,28 @@
 module.exports.login = (app, req, res) => {
+    if(req.session.authenticated){
+        if(req.session.admin){
+            res.redirect("/admin");
+            return;
+        }
+
+        res.redirect("/");
+        return;
+    }
     res.render("auth/login");
     return;
 }
 
 module.exports.auth = async (app, req, res) => {
+    if(req.session.authenticated){
+        if(req.session.admin){
+            res.redirect("/admin");
+            return;
+        }
+
+        res.redirect("/");
+        return;
+    }
+
     const data = req.body;
 
     const connection = require("../../config/dbConfig.js");
@@ -22,7 +41,7 @@ module.exports.auth = async (app, req, res) => {
 
     req.session.authenticated = true;
     req.session.id = user[0].Id;
-    req.session.name = user[0].FirstName + user[0].LastName;
+    req.session.name = user[0].FirstName + " " + user[0].LastName;
     req.session.ir = user[0].IR;
 
     if(userType[0].Admin){
@@ -30,7 +49,6 @@ module.exports.auth = async (app, req, res) => {
         res.redirect("/admin");
         return;
     } 
-    
     res.redirect("/");
     return;
 }

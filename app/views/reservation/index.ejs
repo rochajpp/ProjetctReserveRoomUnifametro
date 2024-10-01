@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/index.css" />
+    <link rel="stylesheet" type="text/css" href="/reservation/style.css" />
+
+    <link rel="icon" href="/img/favicon.png" />
+    <title>Reservar|Unifametro</title>
+</head>
+<body>
+    <main>
+        <div class="main-container">
+            <div class="box">
+                <img src="/img/unifametro-logo.png" />
+                
+                <form action="/reservation/search" method="POST">
+                    <h1>Preencha os campos abaixo</h1>
+                    <div class="input-area">
+                        <label>Grupo:</label>
+                        <select name="group" id="group" required>
+                            <option value="" disabled selected>Selecione o grupo de salas</option>
+                            <%groups.forEach((i)=>{%>
+                                <option value="<%=i.Id%>"><%=i.Name%></option>
+                            <%})%>
+                        </select>
+                    </div>
+
+                    <div class="input-area">
+                        <label>Data:</label>
+                        <input type="date" id="date" name="date" required/>
+                    </div>
+
+                    <div class="input-area">
+                        <label>Horário:</label>
+                        <input type="time" id="time" name="time" disabled required/>
+                        <span>Selecione o grupo de sala para escolher um horário</span>
+                    </div>
+
+                    <button type="submit" class="btn-primary">Procurar</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script src="/reservation/script.js"></script>
+</body>
+</html>
