@@ -9,24 +9,40 @@
     <title>Login</title>
 </head>
 <body>
-    <header>
-        <div class="header-container">
-            <img src="/img/unifametro-logo.png" />
-        </div>
-    </header>
+
     <main>
         <div class="main-container">
-            <form action="/auth" method="POST">
-                <h1>Entrar</h1>
-                <div class="input-area">
-                    <input type="number" name="IR" placeholder="Identificação de usuário    " required/>
-                </div>
-                <div class="input-area">
-                    <input type="password" name="password" placeholder="Insira sua senha" required/>
-                </div>
+            <div class="box">
+                <form action="/auth" method="POST">
+                    <img src="/img/unifametro-logo.png" />
+                    <div class="input-area">
+                        <input type="number" name="IR" placeholder="Identificação de usuário    " required/>
+                    </div>
+                    <div class="input-area">
+                        <input type="password" name="password" placeholder="Insira sua senha" required/>
+                    </div>
 
-                <button class="btn-primary" type="submit">Entrar</button>
-            </form>
+                    <button class="btn-primary" type="submit">Entrar</button>
+                    <a href="https://apppassword.unifametro.edu.br/">Perdeu a senha?</a>
+                </form>
+                <hr />
+                <div class="info">
+                    <h1>Esta é sua primeira vez aqui?</h1>
+                    <p>
+                        Para acessar o ambiente utilize as mesmas credenciais do 
+                        Portal Acadêmico. 
+                        <br />
+                        <br />
+                        Caso não consiga efetuar seu login, clique
+                        no link "Perdeu a senha", para outros problemas, envie e-mail
+                        para: 
+                        <br />
+                        <br />
+                        <span>suporte@unifametro.edu.br</span>
+                    </p>
+                    <span>Copyright</span>
+                </div>
+            </div>
         </div>
     </main>
 </body>
