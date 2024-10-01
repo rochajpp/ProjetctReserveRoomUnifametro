@@ -31,16 +31,20 @@ main{
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+    width: 100%;
+
 }
 
 form{
     display: flex;
     align-items: center;
+    justify-content: center;
     flex-direction: column;
     gap: 2rem;
     background-color: var(--light-color);
-    padding: 2rem 8rem;
+    padding: 4rem;
     border-radius: 1rem;
+    width: 40%;
 }
 
 label{
@@ -48,5 +52,8 @@ label{
 }
 input{
     height: 2.5rem;
+    width: 100%;
     padding: 0.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid black;
 }
