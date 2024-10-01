@@ -60,6 +60,19 @@ controllers e models dentro da aplicação.
 
 <br>
 
+## Observações sobre o projeto
+
+Além de eu ter citado a minha decisão de não usar o sequelize também optei por não
+desenvolver, por hora, a responsividade da aplicação devido ao tempo de produção do 
+trabalho, e assim focar mais na funcionalidade do projeto.
+
+Algumas partes do projeto irá ter uma básica responsividade mas não irei focar muito
+como por exemplo usando o `@media`.
+
+Finalizando a aplicação irei analisar e decidir se desenvolvo a responsividade.
+
+<br>
+
 ## Algumas ideias para futuras atualizações:
 
 - Aluno ser notificado por email com as informações da reserva.
