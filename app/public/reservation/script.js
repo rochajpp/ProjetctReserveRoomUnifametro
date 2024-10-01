@@ -13,10 +13,8 @@ const inputHour = document.querySelector("#time");
 
 group.addEventListener('input', () => {
     if(group != null && group != ""){
-        fetch("/getAllGroups")
-        .then(data => {
-            return data.json();
-        })
+        fetch("/api/getAllGroups")
+        .then(response =>  response.json())
         .then(data => {
             inputHour.min = data.StartTime;
             inputHour.max = data.EndTime;
