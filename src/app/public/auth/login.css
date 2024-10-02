@@ -25,7 +25,7 @@ main{
     border-radius: 1rem;
     display: flex;
     width: 60%;
-    padding: 2rem;
+    padding: 2rem 0;
 }
 form{
     display: flex;
