@@ -37,13 +37,18 @@ function showHours(name, date, hours, roomId){
 
     const hoursDiv = document.querySelector('.hours');
 
-    hoursArray.forEach((hour) => {
-        const a = document.createElement('a');
-        a.href = "/reservation/reserve?hour=" + hour + "&date=" + date + "&roomId=" + roomId;
-        a.innerHTML = hour + ":00";
-        hoursDiv.appendChild(a);
-    });
-
+    if(hoursArray[0] != ""){
+        hoursArray.forEach((hour) => {
+            const a = document.createElement('a');
+            a.href = "/reservation/reserve?hour=" + hour + "&date=" + date + "&roomId=" + roomId;
+            a.innerHTML = hour + ":00";
+            hoursDiv.appendChild(a);
+        });
+    } else{
+        const p = document.createElement('p');
+        p.innerHTML = "Sem horários disponíveis para " + name + " na data de " + date;
+        hoursDiv.appendChild(p); 
+    }
     hoursArea = document.querySelector('.hours-area');
     hoursArea.style.display = 'flex';
 }
@@ -51,10 +56,13 @@ function showHours(name, date, hours, roomId){
 function closeHours(){
 
     const hours = document.querySelectorAll('.hours a');
+    const hoursp = document.querySelector('.hours p');
     
     hours.forEach((hour) => {
         hour.remove();
     })
+
+    hoursp.remove();
 
     hoursArea = document.querySelector('.hours-area');
     hoursArea.style.display = 'none';
