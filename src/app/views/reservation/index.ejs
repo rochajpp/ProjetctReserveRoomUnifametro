@@ -49,7 +49,7 @@
                             <%info.forEach((room) => {%>
                                 <div class="room-area">
                                     <h3><%=room.Name%></h3>
-                                    <p onclick="showHours('<%= room.Name %>', '<%= room.Date %>', '<%= room.HoursAvailable %>')">Ver horários</p>
+                                    <p onclick="showHours('<%= room.Name %>', '<%= room.Date %>', '<%= room.HoursAvailable %>', '<%= room.Id %>')">Ver horários</p>
                                 </div>
                             <%})%>
                         </div>

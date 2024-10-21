@@ -14,6 +14,11 @@ module.exports.main = async (app, req, res) => {
 
 module.exports.search = async (app, req, res) => {
 
+    if(!req.session.authenticated){
+        res.redirect("/login");
+        return;
+    }
+
     function convertHour(time){
         [hour, minute] = time.split(':').map(Number);
         return hour * 60 + minute;
@@ -76,4 +81,39 @@ module.exports.search = async (app, req, res) => {
     groups = await RoomGroup.getAll();
     res.render("reservation/index", {info: info, groups: groups});
     return; 
+}
+
+module.exports.reserve = async (app, req, res) => {
+    if(!req.session.authenticated){
+        res.redirect("/login");
+        return;
+    }
+    
+    const data = req.query;
+    const hour = data.hour;
+    const date = data.date;
+    const roomId = data.roomId;
+
+    const connection = require('../../config/dbConfig');
+    const Reservation = new app.app.models.Reservation(connection); 
+    
+    startHour = hour + ":00:00";
+    hourInt = parseInt(hour, 10);
+    endHour = (hourInt + 2) + ":00:00";
+    const reserve = {
+        StartHour: startHour,
+        EndHour: endHour,
+        RoomsId: roomId,
+        UsersId: req.session.userId,
+        ReservationDate: date,
+    }
+
+    const response = await Reservation.insert(reserve);
+
+    if(response == null){
+        res.send("Erro ao criar reserva");
+        return;
+    }
+
+    res.render("reservation/reserve", {reservation: reserve});
 }

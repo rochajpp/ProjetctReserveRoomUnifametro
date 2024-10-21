@@ -6,4 +6,8 @@ module.exports = (app) => {
     app.post("/reservation/search", (req, res) => {
         app.app.controllers.reservation.search(app, req, res);
     })
+
+    app.get("/reservation/reserve", (req, res) => {
+        app.app.controllers.reservation.reserve(app, req, res);
+    })
 }

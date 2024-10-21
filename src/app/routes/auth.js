@@ -5,5 +5,5 @@ module.exports = (app) => {
 
     app.post("/auth", (req, res) => {
         app.app.controllers.auth.auth(app, req, res);
-    })
+    });
 }

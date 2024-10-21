@@ -38,9 +38,8 @@ module.exports.auth = async (app, req, res) => {
     const UserType = new app.app.models.UserType(connection);
 
     const userType = await UserType.getById(user[0].UserTypesId);
-
     req.session.authenticated = true;
-    req.session.id = user[0].Id;
+    req.session.userId = user[0].Id;
     req.session.name = user[0].FirstName + " " + user[0].LastName;
     req.session.ir = user[0].IR;
 

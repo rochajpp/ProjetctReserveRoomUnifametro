@@ -27,7 +27,7 @@ group.addEventListener('input', () => {
     }
 })
 
-function showHours(name, date, hours){
+function showHours(name, date, hours, roomId){
 
     const h3 = document.querySelector('.box-hours h2');
     h3.innerHTML = name + " - " + date;
@@ -39,7 +39,7 @@ function showHours(name, date, hours){
 
     hoursArray.forEach((hour) => {
         const a = document.createElement('a');
-        a.href = "/reservation/reserve?hour=" + hour;
+        a.href = "/reservation/reserve?hour=" + hour + "&date=" + date + "&roomId=" + roomId;
         a.innerHTML = hour + ":00";
         hoursDiv.appendChild(a);
     });
