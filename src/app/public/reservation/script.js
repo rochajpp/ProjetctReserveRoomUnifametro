@@ -27,4 +27,36 @@ group.addEventListener('input', () => {
     }
 })
 
+function showHours(name, date, hours){
+
+    const h3 = document.querySelector('.box-hours h2');
+    h3.innerHTML = name + " - " + date;
+
+    hoursArray = hours.split(',');
+    console.log(hoursArray);
+
+    const hoursDiv = document.querySelector('.hours');
+
+    hoursArray.forEach((hour) => {
+        const a = document.createElement('a');
+        a.href = "/reservation/reserve?hour=" + hour;
+        a.innerHTML = hour + ":00";
+        hoursDiv.appendChild(a);
+    });
+
+    hoursArea = document.querySelector('.hours-area');
+    hoursArea.style.display = 'flex';
+}
+
+function closeHours(){
+
+    const hours = document.querySelectorAll('.hours a');
+    
+    hours.forEach((hour) => {
+        hour.remove();
+    })
+
+    hoursArea = document.querySelector('.hours-area');
+    hoursArea.style.display = 'none';
+}
 

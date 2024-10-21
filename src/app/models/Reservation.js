@@ -11,6 +11,16 @@ class Reservation extends BaseModel {
         const [rows] = await this._context.query(query);
         return rows;
     }
+
+    async getAllByDate(date){
+        try{
+            const [rows] = await this._context.query("SELECT * FROM reservations WHERE ReservationDate = '" + date + "'");
+            return rows;
+        } catch(err) {
+            console.error("Error getting data: " + err);
+            return null;
+        }
+    }
 }
 
 module.exports = () => {

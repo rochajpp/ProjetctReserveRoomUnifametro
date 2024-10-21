@@ -10,16 +10,22 @@
     <title>Reservar|Unifametro</title>
 </head>
 <body>
+    <div class="hours-area">
+        <div class="box-hours">
+            <h2></h2>
+            <div class="hours"></div>
+            <button onclick="closeHours()" class="btn btn-primary">Voltar</button>
+        </div>
+    </div>
     <main>
         <div class="main-container">
             <div class="box">
-                <img src="/img/unifametro-logo.png" />
-                
                 <form action="/reservation/search" method="POST">
+                    <img src="/img/unifametro-logo.png" />
                     <h1>Preencha os campos abaixo</h1>
                     <div class="input-area">
                         <label>Grupo:</label>
-                        <select name="group" id="group" required>
+                        <select name="groupId" id="group" required>
                             <option value="" disabled selected>Selecione o grupo de salas</option>
                             <%groups.forEach((i)=>{%>
                                 <option value="<%=i.Id%>"><%=i.Name%></option>
@@ -32,14 +38,23 @@
                         <input type="date" id="date" name="date" required/>
                     </div>
 
-                    <div class="input-area">
-                        <label>Horário:</label>
-                        <input type="time" id="time" name="time" disabled required/>
-                        <span>Selecione o grupo de sala para escolher um horário</span>
-                    </div>
-
                     <button type="submit" class="btn-primary">Procurar</button>
                 </form>
+
+                <% if(info.length > 0){ %>
+                    <div class="table">        
+                        <h1>Salas disponíveis</h1>
+                        <h2>Dia: <%=info[0].Date%></h2>
+                        <div class="rooms">
+                            <%info.forEach((room) => {%>
+                                <div class="room-area">
+                                    <h3><%=room.Name%></h3>
+                                    <p onclick="showHours('<%= room.Name %>', '<%= room.Date %>', '<%= room.HoursAvailable %>')">Ver horários</p>
+                                </div>
+                            <%})%>
+                        </div>
+                    </div>  
+                <%}%>
             </div>
         </div>
     </main>

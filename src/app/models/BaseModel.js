@@ -16,7 +16,7 @@ class BaseModel{
 
     async getById(Id){
         try{
-            const [rows] = await this._context.query("SELECT * FROM " + this._table + " WHERE ID = " + Id);
+            const [rows] = await this._context.query("SELECT * FROM " + this._table + " WHERE Id = " + Id);
             return rows;
         } catch(err){
             console.error("Error getting data: " + err);
